@@ -12,7 +12,7 @@ export default function Hero() {
       className="animate-fade-up relative overflow-hidden rounded-2xl border border-outline-variant shadow-sm"
     >
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 bg-[linear-gradient(165deg,#dbe4ff_0%,#4d7cff_42%,#0052ff_100%)]"
         style={{ width: '100%', height: '100%', position: 'absolute' }}
         aria-hidden="true"
       >

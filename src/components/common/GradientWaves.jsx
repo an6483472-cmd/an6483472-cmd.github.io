@@ -158,55 +158,69 @@ const GradientWaves = ({
     const container = containerRef.current;
     if (!container) return;
 
-    const renderer = new Renderer({
-      webgl: 2,
-      alpha: true,
-      premultipliedAlpha: true,
-      antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
-    });
+    let renderer;
+    let gl;
+    let canvas;
+    let program;
+    let mesh;
+    let ro;
+    let io;
 
-    const gl = renderer.gl;
-    gl.clearColor(0, 0, 0, 0);
-    const canvas = gl.canvas;
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-    canvas.style.display = 'block';
-    container.appendChild(canvas);
+    try {
+      renderer = new Renderer({
+        webgl: 2,
+        alpha: true,
+        premultipliedAlpha: true,
+        antialias: false,
+        dpr: Math.min(window.devicePixelRatio || 1, 2)
+      });
+      gl = renderer.gl;
+      if (!gl) return;
 
-    const geometry = new Triangle(gl);
-    const program = new Program(gl, {
-      vertex,
-      fragment,
-      uniforms: {
-        iTime: { value: 0 },
-        iResolution: { value: new Float32Array([1, 1]) },
-        uSpeed: { value: 0.4 },
-        uAmplitude: { value: 2.5 },
-        uWaveScale: { value: 0.6 },
-        uWaveRatio: { value: 0.9 },
-        uSwell: { value: 35 },
-        uTurbulence: { value: 20 },
-        uTilt: { value: 1.11 },
-        uZoom: { value: 1.0 },
-        uHeight: { value: 5.5 },
-        uFogDepth: { value: 15 },
-        uSteps: { value: 70.0 },
-        uBrightness: { value: 1.0 },
-        uOpacity: { value: 1.0 },
-        uGrain: { value: 1.0 },
-        uGrainIntensity: { value: 0.05 },
-        uMouse: { value: new Float32Array([0.5, 0.5]) },
-        uParallax: { value: 0.5 },
-        uEnableMouse: { value: true },
-        uHorizonColor: { value: new Float32Array([1, 1, 1]) },
-        uWaveColor: { value: new Float32Array([1, 1, 1]) },
-        uCrestColor: { value: new Float32Array([1, 1, 1]) }
-      }
-    });
+      gl.clearColor(0, 0, 0, 0);
+      canvas = gl.canvas;
+      canvas.style.width = '100%';
+      canvas.style.height = '100%';
+      canvas.style.display = 'block';
+      container.appendChild(canvas);
 
-    const mesh = new Mesh(gl, { geometry, program });
-    ctxMap.set(container, { renderer, program, mesh });
+      const geometry = new Triangle(gl);
+      program = new Program(gl, {
+        vertex,
+        fragment,
+        uniforms: {
+          iTime: { value: 0 },
+          iResolution: { value: new Float32Array([1, 1]) },
+          uSpeed: { value: 0.4 },
+          uAmplitude: { value: 2.5 },
+          uWaveScale: { value: 0.6 },
+          uWaveRatio: { value: 0.9 },
+          uSwell: { value: 35 },
+          uTurbulence: { value: 20 },
+          uTilt: { value: 1.11 },
+          uZoom: { value: 1.0 },
+          uHeight: { value: 5.5 },
+          uFogDepth: { value: 15 },
+          uSteps: { value: 70.0 },
+          uBrightness: { value: 1.0 },
+          uOpacity: { value: 1.0 },
+          uGrain: { value: 1.0 },
+          uGrainIntensity: { value: 0.05 },
+          uMouse: { value: new Float32Array([0.5, 0.5]) },
+          uParallax: { value: 0.5 },
+          uEnableMouse: { value: true },
+          uHorizonColor: { value: new Float32Array([1, 1, 1]) },
+          uWaveColor: { value: new Float32Array([1, 1, 1]) },
+          uCrestColor: { value: new Float32Array([1, 1, 1]) }
+        }
+      });
+
+      mesh = new Mesh(gl, { geometry, program });
+      ctxMap.set(container, { renderer, program, mesh });
+    } catch (err) {
+      console.warn('[GradientWaves] WebGL unavailable, using CSS fallback.', err);
+      return;
+    }
 
     const setSize = () => {
       const rect = container.getBoundingClientRect();
@@ -219,7 +233,7 @@ const GradientWaves = ({
       renderer.render({ scene: mesh });
     };
 
-    const ro = new ResizeObserver(setSize);
+    ro = new ResizeObserver(setSize);
     ro.observe(container);
     setSize();
 
@@ -265,7 +279,7 @@ const GradientWaves = ({
       }
     };
 
-    const io = new IntersectionObserver(
+    io = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
         isVisible ? tryStart() : tryStop();
@@ -284,8 +298,8 @@ const GradientWaves = ({
 
     return () => {
       tryStop();
-      ro.disconnect();
-      io.disconnect();
+      ro?.disconnect();
+      io?.disconnect();
       document.removeEventListener('visibilitychange', onVisibility);
       canvas.removeEventListener('pointermove', onPointerMove);
       canvas.removeEventListener('pointerleave', onPointerLeave);
