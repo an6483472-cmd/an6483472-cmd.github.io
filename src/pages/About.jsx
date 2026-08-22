@@ -116,9 +116,11 @@ export default function About() {
                 <h3 className="font-headline-md text-headline-md text-on-surface">
                   {about.education.school}
                 </h3>
-                <p className="font-body-md text-body-md text-on-surface-variant">
-                  {about.education.description}
-                </p>
+                <div className="flex flex-col gap-1 font-body-md text-body-md text-on-surface-variant">
+                  {about.education.lines.map((line) => (
+                    <p key={line}>{line}</p>
+                  ))}
+                </div>
               </div>
             </div>
           </section>

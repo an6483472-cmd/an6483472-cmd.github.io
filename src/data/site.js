@@ -6,13 +6,15 @@ export const site = {
   roleLine: 'AI 产品经理',
   email: '1078225582@qq.com',
   phone: '18352612918',
-  wechat: 'anjiaqi_product',
-  github: 'https://github.com/anjiaqi',
-  githubLabel: 'github.com/anjiaqi',
+  wechat: '18352612918',
+  github: 'https://github.com/an6483472-cmd',
+  githubLabel: 'github.com/an6483472-cmd',
   linkedin: 'https://linkedin.com',
   cvHref: encodeURI('/assets/安佳琪_AI产品经理.pdf'),
+  showCvDownload: false,
+  portraitHref: '/assets/portrait.jpg',
   location: '中国',
-  footerCopy: '© 2024 安佳琪 — AI 产品经理',
+  footerCopy: '© 2026 安佳琪 — AI 产品经理',
   contactIntro: '欢迎就 ToB AI 产品、Agent 架构与知识体系建设相关机会沟通。',
   contactNote:
     '邮件通常会在 24 小时内回复。如有紧急事项，也可通过电话联系。',
@@ -29,6 +31,6 @@ export const site = {
   social: [
     { label: '邮箱', href: 'mailto:1078225582@qq.com' },
     { label: '电话', href: 'tel:18352612918' },
-    { label: 'GitHub', href: 'https://github.com/anjiaqi' },
+    { label: 'GitHub', href: 'https://github.com/an6483472-cmd' },
   ],
 }

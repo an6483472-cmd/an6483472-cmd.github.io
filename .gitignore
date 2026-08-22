@@ -14,6 +14,10 @@ dist-ssr
 .env
 .env.*.local
 
+# Keep original photo locally; ship only optimized portrait.jpg
+public/assets/微信图片*.jpg
+docs/assets/微信图片*.jpg
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

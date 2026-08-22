@@ -17,13 +17,14 @@ export default function Contact() {
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-10 pb-16 md:flex-row md:px-margin-page">
       <div className="flex w-full flex-col gap-6 md:w-1/3">
-        <div className="saas-card flex aspect-[3/4] w-full items-center justify-center">
-          <span className="px-4 text-center font-label-mono text-label-mono text-on-surface-variant">
-            照片占位
-            <span className="mt-2 block text-[10px] opacity-70">
-              （按要求不生成真实头像）
-            </span>
-          </span>
+        <div className="saas-card aspect-[3/4] w-full overflow-hidden p-0">
+          <img
+            src={site.portraitHref}
+            alt={`${site.name} 照片`}
+            className="h-full w-full object-cover object-center"
+            loading="eager"
+            decoding="async"
+          />
         </div>
         <div>
           <SectionLabel>联系</SectionLabel>
@@ -79,7 +80,7 @@ export default function Contact() {
                 {site.wechat}
               </button>
               <p className="mt-2 font-label-sm text-label-sm text-on-surface-variant">
-                {copied ? '已复制。' : '点击复制微信号。'}
+                {copied ? '已复制。' : '同手机号，点击复制。'}
               </p>
             </div>
           </div>

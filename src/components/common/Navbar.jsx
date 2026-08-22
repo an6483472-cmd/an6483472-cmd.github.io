@@ -58,13 +58,15 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button
-            href={site.cvHref}
-            className="hidden sm:inline-flex"
-            download
-          >
-            下载简历
-          </Button>
+          {site.showCvDownload ? (
+            <Button
+              href={site.cvHref}
+              className="hidden sm:inline-flex"
+              download
+            >
+              下载简历
+            </Button>
+          ) : null}
           <button
             type="button"
             className="inline-flex items-center justify-center rounded-xl border border-outline-variant bg-card p-2 text-on-surface shadow-sm md:hidden"
@@ -96,11 +98,13 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Button href={site.cvHref} download className="w-full">
-                下载简历
-              </Button>
-            </li>
+            {site.showCvDownload ? (
+              <li>
+                <Button href={site.cvHref} download className="w-full">
+                  下载简历
+                </Button>
+              </li>
+            ) : null}
           </ul>
         </div>
       ) : null}
