@@ -1,8 +1,7 @@
 export const SECTION_IDS = {
   positioning: 'positioning',
-  achievements: 'achievements',
+  honors: 'honors',
   cases: 'cases',
   methodology: 'methodology',
-  honors: 'honors',
   contact: 'contact-entry',
 }

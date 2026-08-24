@@ -12,6 +12,7 @@ export const site = {
   linkedin: 'https://linkedin.com',
   cvHref: encodeURI('/assets/安佳琪_AI产品经理.pdf'),
   showCvDownload: false,
+  showGithub: false,
   portraitHref: '/assets/portrait.jpg',
   location: '中国',
   footerCopy: '© 2026 安佳琪 — AI 产品经理',
@@ -19,13 +20,8 @@ export const site = {
   contactNote:
     '邮件通常会在 24 小时内回复。如有紧急事项，也可通过电话联系。',
   nav: [
-    { id: 'product', label: '作品', href: '/' },
-    {
-      id: 'philosophy',
-      label: '方法论',
-      href: { pathname: '/', hash: 'methodology' },
-    },
-    { id: 'nodes', label: '关于', href: '/about' },
+    { id: 'product', label: '作品', href: '/works' },
+    { id: 'nodes', label: '个人历程', href: '/about' },
     { id: 'contact', label: '联系', href: '/contact' },
   ],
   social: [

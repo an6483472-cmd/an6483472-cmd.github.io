@@ -22,6 +22,8 @@ docs/assets/微信图片*.jpg
 .vscode/*
 !.vscode/extensions.json
 .idea
+.cursor/
+*.code-workspace
 .DS_Store
 *.suo
 *.ntvs*

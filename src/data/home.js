@@ -1,22 +1,3 @@
-export const achievements = [
-  {
-    id: 'performance',
-    label: '绩效评级',
-    text: '连续四次半年考评获得「S」（部门前 5%）。',
-    icon: 'military_tech',
-    tone: 'secondary',
-    filled: true,
-  },
-  {
-    id: 'tier',
-    label: '质量创新',
-    text: '2025 年中国质量创新与质量改进成果示范级奖（全国前 2%）。',
-    icon: 'emoji_events',
-    tone: 'primary',
-    filled: false,
-  },
-]
-
 export const methodology = [
   {
     id: 'discovery',

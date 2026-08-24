@@ -20,6 +20,11 @@ function githubPages() {
 export default defineConfig({
   base: '/',
   plugins: [react(), tailwindcss(), githubPages()],
+  resolve: {
+    alias: {
+      '@': resolve(import.meta.dirname, './src'),
+    },
+  },
   build: {
     outDir: 'docs',
     emptyOutDir: true,

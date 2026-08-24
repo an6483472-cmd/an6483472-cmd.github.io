@@ -17,7 +17,7 @@ export const about = {
   education: {
     city: '南京',
     country: '中国',
-    school: '南京航空航天大学 · 自动化学院',
+    school: '南京航空航天大学 · 自动化学院（保研）',
     lines: [
       '2019.9—2022.4 控制理论与控制工程 硕士',
       '2015.9—2019.6 自动化 本科',
