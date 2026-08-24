@@ -5,13 +5,9 @@ import { cn } from '../../utils/helpers'
 import Button from './Button'
 import Icon from './Icon'
 
-function resolveActive(itemId, pathname, hash) {
-  if (itemId === 'philosophy') {
-    return pathname === '/' && hash === '#methodology'
-  }
+function resolveActive(itemId, pathname) {
   if (itemId === 'product') {
-    if (pathname === '/' && hash === '#methodology') return false
-    return pathname === '/' || pathname.startsWith('/works')
+    return pathname.startsWith('/works')
   }
   if (itemId === 'nodes') {
     return pathname.startsWith('/about')
@@ -23,7 +19,7 @@ function resolveActive(itemId, pathname, hash) {
 }
 
 export default function Navbar() {
-  const { pathname, hash } = useLocation()
+  const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
 
   return (
@@ -39,7 +35,7 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-8 md:flex">
           {site.nav.map((item) => {
-            const active = resolveActive(item.id, pathname, hash)
+            const active = resolveActive(item.id, pathname)
             return (
               <NavLink
                 key={item.id}
@@ -88,7 +84,7 @@ export default function Navbar() {
                   to={item.href}
                   className={cn(
                     'font-label-mono text-label-mono',
-                    resolveActive(item.id, pathname, hash)
+                    resolveActive(item.id, pathname)
                       ? 'text-primary'
                       : 'text-on-surface-variant',
                   )}

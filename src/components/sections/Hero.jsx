@@ -18,24 +18,24 @@ export default function Hero() {
       >
         <GradientWaves
           className="h-full min-h-[520px] w-full md:min-h-[560px]"
-          horizonColor="#0052FF"
-          waveColor="#4D7CFF"
+          horizonColor="#0039C7"
+          waveColor="#8EB4FF"
           crestColor="#FFFFFF"
-          speed={0.4}
-          amplitude={2.5}
-          waveScale={0.6}
-          waveRatio={0.9}
-          swell={35}
-          turbulence={20}
-          tilt={1.11}
-          zoom={1}
-          height={5.5}
-          fogDepth={15}
+          speed={0.7}
+          amplitude={3.6}
+          waveScale={0.45}
+          waveRatio={0.85}
+          swell={28}
+          turbulence={14}
+          tilt={1.05}
+          zoom={0.95}
+          height={5.8}
+          fogDepth={20}
           detail="medium"
-          brightness={1}
-          opacity={0.9}
+          brightness={1.1}
+          opacity={1}
           mouseInteraction
-          parallaxStrength={0.5}
+          parallaxStrength={0.7}
           grain
           grainIntensity={0.05}
         />

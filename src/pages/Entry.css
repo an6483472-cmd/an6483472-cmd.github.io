@@ -1,0 +1,193 @@
+.entry-canvas {
+  background: linear-gradient(165deg, #dbe4ff 0%, #4d7cff 42%, #0052ff 100%);
+}
+
+.entry-terminal {
+  border: 1px solid rgb(255 255 255 / 0.35);
+  background: rgb(255 255 255 / 0.42);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 1px 3px rgb(0 0 0 / 0.06),
+    0 20px 40px rgb(15 23 42 / 0.08);
+}
+
+.entry-terminal.is-success {
+  box-shadow:
+    0 0 0 1px rgb(0 82 255 / 0.35),
+    0 8px 24px rgb(0 82 255 / 0.2);
+}
+
+.entry-caret {
+  display: inline-block;
+  width: 0.55ch;
+  height: 1.1em;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  background: linear-gradient(to bottom, #0052ff, #4d7cff);
+  animation: entry-blink 1.05s steps(1) infinite;
+}
+
+.entry-input-caret {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.55ch;
+  height: 1.15em;
+  background: linear-gradient(to bottom, #0052ff, #4d7cff);
+  animation: entry-blink 1.05s steps(1) infinite;
+  pointer-events: none;
+}
+
+.entry-input {
+  caret-color: transparent;
+}
+
+.entry-input:disabled {
+  opacity: 1;
+}
+
+.entry-float {
+  animation: entry-float-y 5s ease-in-out infinite;
+}
+
+.entry-ring {
+  animation: entry-spin-slow 60s linear infinite;
+}
+
+.entry-shake {
+  animation: entry-shake 0.4s ease-out;
+}
+
+.entry-fade {
+  animation: fade-up 0.7s var(--ease-out) both;
+}
+
+.entry-traffic {
+  display: inline-block;
+  animation: entry-traffic-pulse 1.5s ease-in-out infinite;
+}
+
+.entry-traffic--red {
+  background: #ff5f57;
+  animation-name: entry-traffic-red;
+  animation-delay: 0s;
+}
+
+.entry-traffic--amber {
+  background: #febc2e;
+  animation-name: entry-traffic-amber;
+  animation-delay: 0.3s;
+}
+
+.entry-traffic--green {
+  background: #28c840;
+  animation-name: entry-traffic-green;
+  animation-delay: 0.6s;
+}
+
+@keyframes entry-traffic-red {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+    box-shadow: 0 0 10px 2px rgb(255 95 87 / 0.75);
+  }
+}
+
+@keyframes entry-traffic-amber {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+    box-shadow: 0 0 10px 2px rgb(254 188 46 / 0.75);
+  }
+}
+
+@keyframes entry-traffic-green {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+    box-shadow: 0 0 10px 2px rgb(40 200 64 / 0.75);
+  }
+}
+
+@keyframes entry-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes entry-float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes entry-spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes entry-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-caret,
+  .entry-input-caret,
+  .entry-float,
+  .entry-ring,
+  .entry-traffic {
+    animation: none !important;
+  }
+
+  .entry-traffic {
+    opacity: 1;
+  }
+
+  .entry-fade {
+    animation: none !important;
+    opacity: 1;
+  }
+}

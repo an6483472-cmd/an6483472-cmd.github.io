@@ -8,7 +8,9 @@ export default function Footer() {
           {site.footerCopy}
         </p>
         <div className="flex gap-6">
-          {site.social.map((item) => (
+          {site.social
+            .filter((item) => site.showGithub || item.label !== 'GitHub')
+            .map((item) => (
             <a
               key={item.label}
               href={item.href}
