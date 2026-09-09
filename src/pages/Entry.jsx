@@ -134,8 +134,10 @@ export default function Entry() {
         await sleep(420)
       }
 
-      unlock()
+      // Navigate while still locked so catch-all cannot redirect an old path to /404,
+      // then unlock so Home mounts on `/`.
       navigate('/', { replace: true })
+      unlock()
       return
     }
 

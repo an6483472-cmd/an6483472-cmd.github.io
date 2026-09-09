@@ -29,13 +29,12 @@ function AppRoutes() {
         <Route path="works" element={<Works />} />
         <Route path="works/:workId" element={<WorkDetail />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="projects/:projectId" element={<Navigate to="/works" replace />} />
-        <Route path="404" element={<NotFound />} />
-        <Route path="*" element={<Navigate to="/404" replace />} />
-      </Route>
-    </Routes>
-  )
-}
+            <Route path="projects/:projectId" element={<Navigate to="/works" replace />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      )
+    }
 
 export default function App() {
   return (
