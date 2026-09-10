@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-6xl space-y-8 px-6 pb-16 md:space-y-10 md:px-margin-page">
       <Hero />
+      <Methodology />
       <Honors />
       <Cases />
-      <Methodology />
       <ContactEntry />
     </div>
   )

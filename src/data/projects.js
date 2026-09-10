@@ -44,23 +44,12 @@ export const projects = [
         text: '设计意图识别六阶段链路与分层记忆；主导 Skill 体系三阶段优化；搭建规范库 / 案例库 / 经验库与元数据体系；建立四层指标与 Goodcase/Badcase 回流，支撑 Agent 自进化。',
       },
     ],
-    figures: [
-      { caption: '图 1：多 Agent 协同闭环' },
-      { caption: '图 2：生成 / 评审 / 发布链路' },
-    ],
     impact: [
-      {
-        label: '人力节省',
-        value: '30%',
-        note: '上线文档平均节省人力。',
-        tone: 'secondary',
-      },
-      {
-        label: '生成采纳率',
-        value: '90%',
-        note: '评审采纳率 95%，一次发布成功率 100%。',
-        tone: 'primary',
-      },
+      { label: '人力节省', value: '30%', note: '上线文档平均节省人力' },
+      { label: '内容质量', value: '+10%', note: '双盲测试高于人工' },
+      { label: '生成采纳率', value: '90%' },
+      { label: '评审采纳率', value: '95%' },
+      { label: '一次发布成功率', value: '100%' },
     ],
   },
   {
@@ -108,23 +97,13 @@ export const projects = [
         text: '设计结果 / 过程 / 性能指标，数据集 200→3000；建立 RAGAS / 规则 / 语义自动化测评流水线；Badcase 自动标签驱动迭代。',
       },
     ],
-    figures: [
-      { caption: '图 1：问答—诊断—提单闭环' },
-      { caption: '图 2：Agentic RAG 与报告架构' },
-    ],
     impact: [
-      {
-        label: '问答准确率',
-        value: '95%',
-        note: '多模态故障诊断命中率 80%，故障效率提高 35%。',
-        tone: 'secondary',
-      },
-      {
-        label: '日均调用',
-        value: '3万+',
-        note: '覆盖率 100%；测评流水线已对接全公司 3000+ Agent。',
-        tone: 'primary',
-      },
+      { label: '问答准确率', value: '95%' },
+      { label: '诊断命中率', value: '80%', note: '多模态故障诊断' },
+      { label: '故障效率提升', value: '35%' },
+      { label: '重复提单下降', value: '90%' },
+      { label: '日均调用', value: '3万+' },
+      { label: '产品覆盖率', value: '100%' },
     ],
   },
   {
@@ -172,23 +151,12 @@ export const projects = [
         text: '输出 PRD 与高保真原型并组织研发评审；设计埋点看板，推动新测评集使用率约 30%→80%+。',
       },
     ],
-    figures: [
-      { caption: '图 1：知识流水线总览' },
-      { caption: '图 2：语料生产与消费边界' },
-    ],
     impact: [
-      {
-        label: '人力提效',
-        value: '60%',
-        note: '4 名语料工程师每季度维护 700+ 文档包流水线。',
-        tone: 'secondary',
-      },
-      {
-        label: '语料就绪',
-        value: '20天→0.5天',
-        note: '语料与测评集覆盖 100% 产品线，图谱覆盖 70%。',
-        tone: 'primary',
-      },
+      { label: '人力提效', value: '60%' },
+      { label: '语料就绪周期', value: '20天→0.5天' },
+      { label: '语料覆盖', value: '100%', note: '语料与测评集覆盖产品线' },
+      { label: '图谱覆盖', value: '70%' },
+      { label: '维护规模', value: '700+', note: '4 名工程师 / 季度文档包' },
     ],
   },
 ]

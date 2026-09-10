@@ -59,8 +59,17 @@ export default function Hero() {
                 </>
               ) : null}
             </h1>
-            <p className="max-w-2xl font-body-lg text-body-lg text-on-surface-variant">
-              {site.tagline}
+            <p className="flex max-w-2xl flex-wrap items-center gap-x-4 gap-y-1.5">
+              <span className="font-body-lg text-body-lg text-on-surface">
+                {site.org}
+              </span>
+              <span
+                className="hidden h-5 w-0.5 rounded-full bg-on-surface/35 sm:block"
+                aria-hidden="true"
+              />
+              <span className="font-body-lg text-body-lg text-on-surface">
+                {site.focus}
+              </span>
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Button to="/works" className="h-12 px-6">

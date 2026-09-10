@@ -16,7 +16,7 @@ export default function ContactEntry() {
           <Icon name="mail" className="text-[28px] text-on-primary" />
         </div>
         <h2 className="mb-2 font-headline-md text-headline-md text-white md:text-[2rem]">
-          一起做复杂而有价值的事。
+          将 AI 能力落实到业务闭环
         </h2>
         <p className="mb-6 font-label-mono text-label-mono text-white/60">
           {site.email}

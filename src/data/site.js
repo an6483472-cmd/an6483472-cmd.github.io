@@ -1,8 +1,9 @@
 export const site = {
   name: '安佳琪',
   title: '安佳琪 | 面向复杂 ToB 场景的 AI 产品经理',
-  tagline:
-    '3 年 B 端 AI 产品全流程经验，主导多款产品 0→1 落地；擅长把用户故事拆解为 Agent 旅程与模型故事，推动架构与体验双提升。',
+  tagline: '中兴通讯文档开发部  智能化交付及 AI 提效',
+  org: '中兴通讯文档开发部',
+  focus: '智能化交付及 AI 提效',
   roleLine: 'AI 产品经理',
   email: '1078225582@qq.com',
   phone: '18352612918',

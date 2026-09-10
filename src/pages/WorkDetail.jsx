@@ -133,62 +133,44 @@ export default function WorkDetail() {
         </div>
       </section>
 
-      <section className="mb-8">
-        <h2 className="mb-6 font-headline-md text-headline-md text-on-surface">
-          架构与方案
-        </h2>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {project.figures.map((figure) => (
-            <div key={figure.caption} className="saas-card p-3">
-              <div className="flex h-64 w-full items-center justify-center rounded-xl border border-dashed border-outline-variant bg-muted/40">
-                <span className="px-4 text-center font-label-mono text-label-mono text-on-surface-variant">
-                  示意图占位
-                </span>
-              </div>
-              <p className="mt-3 px-2 font-label-mono text-label-mono text-on-surface-variant">
-                {figure.caption}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-12">
         <div className="md:col-span-4">
           <h2 className="mb-2 font-headline-md text-headline-md text-on-surface">
             成果影响
           </h2>
           <div className="mb-4 h-1 w-10 rounded-full bg-accent-gradient" />
+          <p className="font-label-mono text-label-mono text-on-surface-variant">
+            关键结果指标。
+          </p>
         </div>
-        <div className="flex flex-col gap-4 md:col-span-8 md:flex-row">
-          {project.impact.map((metric) => (
-            <div
-              key={metric.label}
-              className="saas-card flex flex-1 flex-col p-6"
-            >
-              <span className="mb-2 font-label-mono text-label-mono text-on-surface-variant">
-                {metric.label}
-              </span>
-              <span
+        <div className="md:col-span-8">
+          <div className="overflow-hidden rounded-2xl border border-outline-variant bg-card">
+            {project.impact.map((metric, index) => (
+              <div
+                key={metric.label}
                 className={cn(
-                  'mb-1 font-headline-lg text-headline-lg text-gradient',
+                  'flex items-baseline justify-between gap-6 px-5 py-4 md:px-6 md:py-5',
+                  index > 0 && 'border-t border-outline-variant',
                 )}
               >
-                {metric.value}
-              </span>
-              <p className="mt-3 w-full border-t border-outline-variant pt-3 font-label-sm text-label-sm text-on-surface-variant">
-                {metric.note}
-              </p>
-            </div>
-          ))}
+                <div className="min-w-0">
+                  <span className="block font-label-mono text-label-mono tracking-wide text-on-surface-variant">
+                    {metric.label}
+                  </span>
+                  {metric.note ? (
+                    <span className="mt-1 block font-label-sm text-label-sm text-on-surface-variant/80">
+                      {metric.note}
+                    </span>
+                  ) : null}
+                </div>
+                <span className="shrink-0 font-headline-md text-headline-md text-gradient tabular-nums md:text-[1.75rem]">
+                  {metric.value}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
-
-      <div className="flex items-center justify-center rounded-2xl border border-dashed border-outline-variant bg-muted/40 p-8">
-        <span className="font-label-mono text-label-mono text-on-surface-variant">
-          补充指标占位
-        </span>
-      </div>
     </div>
   )
 }
